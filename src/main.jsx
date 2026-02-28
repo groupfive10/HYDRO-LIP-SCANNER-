@@ -1,29 +1,3 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Camera, Upload, Droplets, Activity, CheckCircle, AlertTriangle, ChevronRight, RefreshCw, Info, X } from 'lucide-react';
-
-/**
- * API KEY SECURITY NOTE:
- * Fixed compatibility issue with import.meta for older build environments.
- */
-const getApiKey = () => {
-  try {
-    return import.meta.env.VITE_GEMINI_API_KEY || "";
-  } catch (e) {
-    return "";
-  }
-};
-
-const apiKey = getApiKey();
-
-export default function App() {
-  const [image, setImage] = useState(null);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [results, setResults] = useState(null);
-  const [error, setError] = useState('');
-  const fileInputRef = useRef(null);
-
-  // Camera specific state and refs
-  const [isCameraActive, setIsCameraActive] = useState(false);
   const videoRef = useRef(null);
   const streamRef = useRef(null);
 
@@ -440,4 +414,5 @@ export default function App() {
       `}} />
     </div>
   );
+
 }
